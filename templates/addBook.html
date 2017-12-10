@@ -1,0 +1,67 @@
+{% extends 'layout.html' %}
+
+{% block page-main %}
+
+    <div class="container">
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">添加书籍 </h3>
+            </div>
+            <div class="panel-body">
+                <!--表单开始-->
+                <form class="form-horizontal" action="/bms/addBook/" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="inputTitle" class="col-sm-2 control-label">书名</label>
+                        <div class="col-sm-3">
+                            <input type="text" name="title" class="form-control" id="inputTitle" placeholder="书名">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-2 "><b style="float: right">出版日期</b></div>
+                        <div class="col-sm-3 ">
+                            <input type="date" name="date" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPrice" class="col-sm-2 control-label">售价</label>
+                        <div class="col-sm-3">
+                            <input type="text" name="price" class="form-control" id="inputPrice" placeholder="售价">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-2 "><b style="float: right">作者</b></div>
+                        <div class="col-sm-3">
+                            <select class="form-control" name="authors" multiple>
+                                {% for author in author_list %}
+                                    <option value="{{ author.id }}">{{ author.name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-2 "><b style="float: right">出版社</b></div>
+                        <div class="col-sm-3">
+                            <select class="form-control" name="publish">
+                                {% for publish in publish_list %}
+                                    <option value="{{ publish.id }}">{{ publish.name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-3 col-sm-offset-2">
+                            <input type="submit" value="提交" class="bg-primary">
+                        </div>
+                    </div>
+                </form>
+                <!--表单结束-->
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}

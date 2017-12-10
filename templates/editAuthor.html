@@ -1,0 +1,58 @@
+{% extends 'layout.html' %}
+
+{% block page-main %}
+
+    <div class="container">
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">编辑作者信息 </h3>
+            </div>
+            <div class="panel-body">
+                <!--表单开始-->
+                <form class="form-horizontal" action="/bms/editAuthor/" method="post">
+                    {% csrf_token %}
+                    <input type="text" name="aid" value="{{ author.id }}" style="display: none">
+                    <input type="text" name="did" value="{{ detail.id }}" style="display: none">
+                    <div class="form-group">
+                        <label for="inputName" class="col-sm-2 control-label">姓名</label>
+                        <div class="col-sm-3">
+                            <input type="text" value="{{ author.name }}" name="name" class="form-control" id="inputName"
+                                   placeholder="姓名">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputAge" class="col-sm-2 control-label">年龄</label>
+                        <div class="col-sm-3">
+                            <input type="text" value="{{ author.age }}" name="age" class="form-control" id="inputAge"
+                                   placeholder="年龄">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputAddr" class="col-sm-2 control-label">住址</label>
+                        <div class="col-sm-3">
+                            <input type="text" value="{{ detail.addr }}" name="addr" class="form-control" id="inputAddr"
+                                   placeholder="住址">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail" class="col-sm-2 control-label">邮箱</label>
+                        <div class="col-sm-3">
+                            <input type="text" value="{{ detail.email }}" name="email" class="form-control"
+                                   id="inputEmail" placeholder="邮箱">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-3 col-sm-offset-2">
+                            <input type="submit" value="提交" class="bg-primary">
+                        </div>
+                    </div>
+                </form>
+                <!--表单结束-->
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}

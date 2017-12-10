@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+
+{% block page-main %}
+
+    <div class="container">
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">添加出版社 </h3>
+            </div>
+            <div class="panel-body">
+                <!--表单开始-->
+                <form class="form-horizontal" action="/bms/addPublish/" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="inputName" class="col-sm-2 control-label">出版社名称</label>
+                        <div class="col-sm-3">
+                            <input type="text" name="name" class="form-control" id="inputName" placeholder="出版社名称">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail" class="col-sm-2 control-label">邮箱</label>
+                        <div class="col-sm-3">
+                            <input type="text" name="email" class="form-control" id="inputEmail" placeholder="邮箱">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-3 col-sm-offset-2">
+                            <input type="submit" value="提交" class="bg-primary">
+                        </div>
+                    </div>
+                </form>
+                <!--表单结束-->
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}
