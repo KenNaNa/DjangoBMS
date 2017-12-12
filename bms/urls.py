@@ -15,4 +15,15 @@ urlpatterns = [
     url(r'^editPublish/', views.editPublish),
     url(r'^editBook/', views.editBook),
     url(r'^editAuthor/', views.editAuthor),
+
+
+
+
+    url(r'^loginbms/', views.loginbms),
+    url(r'^indexbms/', views.indexbms),
+    url(r'^regbms/', views.regbms),
+    url(r'^logoutbms/', views.logoutbms),
+    url(r'^logoutbms/', views.logoutbms),
+    url(r'^setpwdbms/', views.setpwdbms),
 ]
+

@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+
+
+{% block page-main %}
+
+    <h2>Hi, {{ name }}! Welcome To Books Management System </h2>
+
+    <ul>
+    <li><a href="/bms/indexBook/">书籍管理</a></li>
+    <li><a href="/bms/indexAuthor/">作者管理</a></li>
+    <li><a href="/bms/indexPublish/">出版社管理</a></li>
+    <li><a href="/bms/logoutbms/">注销</a></li>
+    <li><a href="/bms/setpwdbms/">修改密码</a></li>
+    </ul>
+
+{% endblock %}

@@ -68,20 +68,29 @@ urlpatterns = [
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>Title</title>
     <link rel="stylesheet" href="/static/plugins/bootstrap/css/bootstrap.min.css">
-    {% block page-css %}
-    {% endblock %}
+
+    <style>
+        {% block page-css %}
+            * {
+                margin: 0;
+                padding: 0;
+            }
+        {% endblock %}
+    </style>
+
 <body>
 {% block page-main %}
 {% endblock %}
 
 <script src="/static/js/jquery-3.2.1.min.js"></script>
 <script src="/static/plugins/bootstrap/js/bootstrap.min.js"></script>
-{% block page-js %}
-{% endblock %}
+<script>
+    {% block page-js %}
+    {% endblock %}
+</script>
+
 </body>
 </html>　
-
-layout
 ```
 
 ## 创建数据库表结构
@@ -171,5 +180,27 @@ python manage.py migrate
 ![](./bms/static/img/编辑作者.png)
 
 
+## 新增用户验证功能
 
-.....
+
+### 创建超级用户
+```
+D:\PycharmProjects\DjangoBMS>python manage.py createsuperuser
+Username (leave blank to use 'lcg'): lcg
+Email address: lcgbeautiful@gmail.com
+Password:
+Password (again):
+Superuser created successfully.
+
+```
+
+### 用于用户验证的装饰器
+```
+def check_login(func):
+    def foo(request,*args,**kwargs):
+        user = request.user
+        if not user.is_authenticated():
+            return redirect('/bms/loginbms/')        
+        return func(request,*args,**kwargs)
+    return foo
+```

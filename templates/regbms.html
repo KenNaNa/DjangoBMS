@@ -1,0 +1,50 @@
+{% extends 'layout.html' %}
+
+{% block page-css %}
+    {{ block.super }}
+        body {
+            background-color: #eeeeee;
+        }
+/*自定义用于col栅格的的居中样式.col-centered */
+        .col-centered {
+            float: none;
+            margin: 100px auto 0;
+        }
+{% endblock %}
+
+{% block page-main %}
+  <div class="container">
+    <div class="row">
+        <form class="form-horizontal col-sm-5 col-centered" action="/bms/regbms/" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <!--列的嵌套，列里面的列又被均分为12份-->
+                <label for="inputUser" class="col-sm-2 control-label">用户名</label>
+                <div class="col-sm-10">
+                    <input type="text" name="username" class="form-control" id="inputUser" placeholder="用户名">
+                </div>
+            </div>
+                        <div class="form-group">
+                <!--列的嵌套，列里面的列又被均分为12份-->
+                <label for="inputEmail" class="col-sm-2 control-label">邮箱</label>
+                <div class="col-sm-10">
+                    <input type="email" name="email" class="form-control" id="inputEmail" placeholder="邮箱">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputPassword" class="col-sm-2 control-label">密码</label>
+                <div class="col-sm-10">
+                    <input type="password" name="password" class="form-control" id="inputPassword" placeholder="密码">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-primary btn-block">注册</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
+

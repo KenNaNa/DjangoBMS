@@ -16,7 +16,7 @@
         <hr>
         <br>
         <p><a href="/bms/addBook/" class="btn btn-sm bg-primary">添加</a></p>
-        <div class="table-responsive">
+        <div class="table-responsive ">
 
             <table class="table table-striped table-bordered table-hover table-condensed">
                 <thead>
@@ -44,8 +44,8 @@
 
                         <td>{{ book.publish.name }}</td>
                         <td>
-                            <a href="/bms/delBook/?id={{ book.id }}" class="btn btn-sm bg-danger">删除</a>
-                            <a href="/bms/editBook/?id={{ book.id }}" class="btn btn-sm bg-primary">编辑</a>
+                            <a href="/bms/delBook/id={{ book.id }}" class="btn btn-sm bg-danger">删除</a>
+                            <a href="/bms/editBook/id={{ book.id }}" class="btn btn-sm bg-primary">编辑</a>
                         </td>
                     </tr>
                 {% endfor %}
